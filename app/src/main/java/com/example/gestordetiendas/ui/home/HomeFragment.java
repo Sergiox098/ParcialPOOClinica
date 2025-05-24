@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.gestordetiendas.FirebaseDB;
 import com.example.gestordetiendas.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
@@ -26,6 +27,16 @@ public class HomeFragment extends Fragment {
 
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
+        //FIREBASE
+
+        FirebaseDB firebaseDB = new FirebaseDB();
+        firebaseDB.initDatabase();
+
+        binding.buttonWrite.setOnClickListener(v -> firebaseDB.writeDatabase());
+        binding.buttonRead.setOnClickListener(v -> firebaseDB.readDatabase());
+        binding.buttonUpdate.setOnClickListener(v -> firebaseDB.updateDatabase());
+        binding.buttonDelete.setOnClickListener(v -> firebaseDB.deleteDatabase());
         return root;
     }
 

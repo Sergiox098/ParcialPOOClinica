@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
-}
+    alias(libs.plugins.google.gms.google.services)
 
+}
 android {
     namespace = "com.example.gestordetiendas"
     compileSdk = 35
@@ -43,6 +44,7 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+    implementation(libs.firebase.database)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
