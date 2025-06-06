@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "296247438643",
+    "project_id": "gestordetiendas",
+    "storage_bucket": "gestordetiendas.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296247438643:android:a0680891a0294a017b6246",
+        "android_client_info": {
+          "package_name": "com.example.gestordetiendas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3qVHkxF08XbQng1m95jDleVBrrnpoGsY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

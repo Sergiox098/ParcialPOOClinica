@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.gestordetiendas.FirebaseDB;
 import com.example.gestordetiendas.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
@@ -25,7 +24,7 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
+        final TextView textView = binding.TextInDatos;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         //FIREBASE
@@ -33,10 +32,32 @@ public class HomeFragment extends Fragment {
         FirebaseDB firebaseDB = new FirebaseDB();
         firebaseDB.initDatabase();
 
-        binding.buttonWrite.setOnClickListener(v -> firebaseDB.writeDatabase());
-        binding.buttonRead.setOnClickListener(v -> firebaseDB.readDatabase());
-        binding.buttonUpdate.setOnClickListener(v -> firebaseDB.updateDatabase());
-        binding.buttonDelete.setOnClickListener(v -> firebaseDB.deleteDatabase());
+
+
+        binding.buttonWrite.setOnClickListener(v -> {
+                String NombreTienda = binding.editTextNombreTienda.getText().toString().trim();
+                String Direccion = binding.editTextDireccion.getText().toString().trim();
+                String NombreProducto = binding.editTextNombreProducto.getText().toString().trim();
+                String Precio = binding.editTextPrecio.getText().toString().trim();
+                firebaseDB.writeDatabase(requireContext(), NombreTienda,Direccion,NombreProducto,Precio);});
+        binding.buttonRead.setOnClickListener(v -> {
+                String NombreTienda = binding.editTextNombreTienda.getText().toString().trim();
+                String Direccion = binding.editTextDireccion.getText().toString().trim();
+                String NombreProducto = binding.editTextNombreProducto.getText().toString().trim();
+                String Precio = binding.editTextPrecio.getText().toString().trim();
+                firebaseDB.readDatabase(requireContext(),NombreTienda);});
+        binding.buttonUpdate.setOnClickListener(v -> {
+                String NombreTienda = binding.editTextNombreTienda.getText().toString().trim();
+                String Direccion = binding.editTextDireccion.getText().toString().trim();
+                String NombreProducto = binding.editTextNombreProducto.getText().toString().trim();
+                String Precio = binding.editTextPrecio.getText().toString().trim();
+                firebaseDB.updateDatabase(requireContext(),NombreTienda,NombreProducto);});
+        binding.buttonDelete.setOnClickListener(v -> {
+            String NombreTienda = binding.editTextNombreTienda.getText().toString().trim();
+            String Direccion = binding.editTextDireccion.getText().toString().trim();
+            String NombreProducto = binding.editTextNombreProducto.getText().toString().trim();
+            String Precio = binding.editTextPrecio.getText().toString().trim();
+            firebaseDB.deleteDatabase(requireContext(),NombreTienda);});
         return root;
     }
 
@@ -46,3 +67,4 @@ public class HomeFragment extends Fragment {
         binding = null;
     }
 }
+
