@@ -15,6 +15,7 @@ firebaseDatabase = "21.0.0"
 annotation = "1.6.0"
 firebaseAuth = "23.2.1"
 legacySupportV4 = "1.0.0"
+activity = "1.8.0"
 
 
 [libraries]
@@ -32,6 +33,7 @@ firebase-database = { group = "com.google.firebase", name = "firebase-database",
 annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupportV4" }
+activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 
 
 [plugins]
