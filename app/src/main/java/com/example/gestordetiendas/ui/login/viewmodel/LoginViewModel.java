@@ -12,7 +12,7 @@ public class LoginViewModel extends ViewModel {
     private final MutableLiveData<String> errorMessage = new MutableLiveData<>();
     private final MutableLiveData<Boolean> loginSuccess = new MutableLiveData<>();
 
-    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    private final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
     public LiveData<Boolean> getIsLoading() { return isLoading; }
     public LiveData<String> getErrorMessage() { return errorMessage; }
